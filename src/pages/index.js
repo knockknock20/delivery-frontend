@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 // const MainPage = () => {
 //     return (
@@ -33,11 +34,14 @@ class MainPage extends React.Component {
         return (
             <div>
                 <h3>Welcome to Knock-Knock Delivery!!!</h3>
+                <h4>Restaurants List: </h4>
                 {this.state.restaurants.map(restaurant => (
                     <div key={restaurant.id}>
                         <div>{restaurant.name}</div>
                         <div>{restaurant.address}</div>
                         <div>{restaurant.phoneNumber}</div>
+                        <Link to="/menu">- show me the menu -</Link>
+                        <div>----------------</div>
                     </div>
                 ))}
             </div>

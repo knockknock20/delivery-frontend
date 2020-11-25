@@ -3,6 +3,7 @@ import './App.css';
 
 import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
 import MainPage from './pages';
+import Menu from './pages/menu';
 
 // function App() {
 //   return (
@@ -29,7 +30,9 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={MainPage} />
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/menu" component={Menu} />
+        {/* <Redirect to='/404page' /> */}
       </Switch>
     </Router>
   );
