@@ -40,7 +40,7 @@ class MainPage extends React.Component {
                         <div>{restaurant.name}</div>
                         <div>{restaurant.address}</div>
                         <div>{restaurant.phoneNumber}</div>
-                        <Link to={ { pathname: "/menu/" + restaurant.id} }>- show me the menu -</Link>
+                        <Link to={ { pathname: "/menu/" + restaurant.id } }>- show me the menu -</Link>
                         <div>----------------</div>
                     </div>
                 ))}
