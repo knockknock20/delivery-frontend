@@ -2,9 +2,22 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 class MainPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     email: props.user.username,
+        //     password: props.user.password,
+        //     loading: true,
+        //     restaurants: [],
+        //     userId: this.props.location.userId
+        //   }
+    }
+
     state = {
         loading: true,
-        restaurants: []
+        restaurants: [],
+        userId: this.props.location.userId
     };
 
     async componentDidMount() {
