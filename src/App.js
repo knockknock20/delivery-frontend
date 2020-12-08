@@ -11,9 +11,9 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={LoginForm} />
-        {/* <Route exact path="/" component={Landing} /> */}
-        <Route exact path="/main" component={MainPage} />
+        <Route exact path="/" component={Landing} />
+        {/* <Route exact path="/" component={LoginForm} /> */}
+        {/* <Route path="/main" component={MainPage} /> */}
         <Route exact path="/menu/:restaurantId" component={Menu} />
         {/* <Redirect to='/404page' /> */}
       </Switch>

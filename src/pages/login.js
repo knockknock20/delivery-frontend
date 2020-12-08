@@ -6,7 +6,7 @@ class LoginForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            valid: false
+            userId: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,14 +24,31 @@ class LoginForm extends React.Component {
 
     handleSignIn(e) {
         e.preventDefault()
-        // this.setState({
-        //     email: this.username.value,
-        //     password: this.password.value
-        // })
-        console.log(this.state.email);
-        console.log(this.state.password);
+       
+        const requestOption = {
+            method: "POST",
+            header: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(
+                { 
+                    email: this.state.email,
+                    password: this.state.password
+                }
+            )
+        };
+
+        fetch("http://localhost:5000/user/login", requestOption)
+            .then(response => response.json())
+            .then(
+                json => { this.setState(
+                    {   
+                        email: json.email,
+                        password: json.password,
+                        userId: json.id
+                    }
+                ) }
+            ).then(() => {this.props.stateChanger(this.state.userId)});
       }
-    
+
 
     render() {
         return (

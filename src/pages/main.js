@@ -10,7 +10,7 @@ class MainPage extends React.Component {
     state = {
         loading: true,
         restaurants: [],
-        userId: this.props.location.userId
+        userId: this.props.userId
     };
 
     async componentDidMount() {
@@ -21,6 +21,8 @@ class MainPage extends React.Component {
     }
 
     render() {
+        console.log(this.state.userId);
+
         if (this.state.loading) {
             return <div> loading... </div>;
         }
