@@ -5,13 +5,6 @@ class MainPage extends React.Component {
 
     constructor(props) {
         super(props);
-        // this.state = {
-        //     email: props.user.username,
-        //     password: props.user.password,
-        //     loading: true,
-        //     restaurants: [],
-        //     userId: this.props.location.userId
-        //   }
     }
 
     state = {
