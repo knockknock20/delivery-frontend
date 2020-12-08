@@ -1,14 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-// const MainPage = () => {
-//     return (
-//         <div>
-//             <h3>Welcome to Knock-Knock Delivery!</h3>
-//         </div>
-//     );
-// }
-
 class MainPage extends React.Component {
     state = {
         loading: true,
@@ -40,7 +32,7 @@ class MainPage extends React.Component {
                         <div>{restaurant.name}</div>
                         <div>{restaurant.address}</div>
                         <div>{restaurant.phoneNumber}</div>
-                        <Link to="/menu">- show me the menu -</Link>
+                        <Link to={ { pathname: "/menu/" + restaurant.id} }>- show me the menu -</Link>
                         <div>----------------</div>
                     </div>
                 ))}
