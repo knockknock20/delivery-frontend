@@ -33,6 +33,7 @@ class Cart extends React.Component {
                         <div>{item.name}</div>
                         <div>{item.price}</div>
                         <div>{item.description}</div>
+                        <div>{item.quantityInCart}</div>
                         <div>----------------</div>
                     </div>
                 ))}
