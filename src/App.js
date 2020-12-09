@@ -16,6 +16,7 @@ const App = () => {
         {/* <Route path="/main" component={MainPage} /> */}
         <Route exact path="/menu/:restaurantId" component={Menu} />
         {/* <Redirect to='/404page' /> */}
+        <Route exact path="/cart/:userId" component={Cart}></Route>
       </Switch>
     </Router>
   );
