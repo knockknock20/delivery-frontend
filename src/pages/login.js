@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
                     }
                 ) }
             ).then(() => {this.props.stateChanger(this.state.userId)});
-      }
+    }
 
 
     render() {

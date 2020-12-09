@@ -7,6 +7,7 @@ import Menu from './pages/menu';
 import LoginForm from './pages/login';
 import Landing from './pages/landing';
 import Cart from './pages/cart';
+import Checkout from './pages/checkout';
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/menu/:restaurantId" component={Menu} />
-        <Route exact path="/cart/:userId" component={Cart}></Route>
+        <Route exact path="/cart/:userId" component={Cart} />
+        <Route exact path="/checkout/:userId" component={Checkout} />
       </Switch>
     </Router>
   );

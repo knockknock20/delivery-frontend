@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Cart extends React.Component {
 
@@ -13,7 +14,7 @@ class Cart extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({items: data, loading: false});
-        console.log(data);
+        // console.log(data);
     }
 
     render() {
@@ -35,12 +36,10 @@ class Cart extends React.Component {
                         <div>----------------</div>
                     </div>
                 ))}
+                <Link to={ { pathname: "/checkout/" + this.state.userId } }>---- Checkout ----</Link>
             </div>
         );
     }
-       
-
-    
 }
 
 export default Cart;
