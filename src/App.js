@@ -6,6 +6,7 @@ import MainPage from './pages/main';
 import Menu from './pages/menu';
 import LoginForm from './pages/login';
 import Landing from './pages/landing';
+import Cart from './pages/cart';
 
 const App = () => {
   return (

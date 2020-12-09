@@ -5,7 +5,7 @@ class Cart extends React.Component {
     state = {
         loading: true,
         items: [],
-        userId: this.props.location.userId
+        userId: this.props.match.params.userId
     };
 
     async componentDidMount() {
@@ -17,8 +17,6 @@ class Cart extends React.Component {
     }
 
     render() {
-        console.log(this.state.restaurantId);
-
         if (this.state.loading) {
             return <div> loading... </div>;
         }
@@ -30,10 +28,10 @@ class Cart extends React.Component {
                 <h3>Cart!</h3>
                 {this.state.items.map(item => (
                     <div key={item.id}>
-                        <div>{item.name}</div>
-                        <div>{item.price}</div>
-                        <div>{item.description}</div>
-                        <div>{item.quantityInCart}</div>
+                        <div>{"Name:   " + item.name}</div>
+                        <div>{"Price:   " + item.price}</div>
+                        <div>{"Description:   " + item.description}</div>
+                        <div>{"Quantity:   " + item.quantityInCart}</div>
                         <div>----------------</div>
                     </div>
                 ))}

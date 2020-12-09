@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Menu extends React.Component {
 
@@ -19,6 +20,7 @@ class Menu extends React.Component {
 
     render() {
         console.log(this.state.restaurantId);
+        console.log("userId:" + this.state.userId);
 
         if (this.state.loading) {
             return <div> loading... </div>;
@@ -37,7 +39,10 @@ class Menu extends React.Component {
                         <div>----------------</div>
                     </div>
                 ))}
+
+                <Link to={ { pathname: "/cart/" + this.state.userId } }>---- Go To Cart ----</Link>
             </div>
+            
         );
     }
 }
