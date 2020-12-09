@@ -21,8 +21,6 @@ class MainPage extends React.Component {
     }
 
     render() {
-        console.log(this.state.userId);
-
         if (this.state.loading) {
             return <div> loading... </div>;
         }
@@ -37,10 +35,10 @@ class MainPage extends React.Component {
                 <h4>Restaurants List: </h4>
                 {this.state.restaurants.map(restaurant => (
                     <div key={restaurant.id}>
-                        <div>{restaurant.name}</div>
-                        <div>{restaurant.address}</div>
-                        <div>{restaurant.phoneNumber}</div>
-                        <Link to={ { pathname: "/menu/" + restaurant.id } }>- show me the menu -</Link>
+                        <div>{"Restaurant Name:   " + restaurant.name}</div>
+                        <div>{"Restaurant Address:   " + restaurant.address}</div>
+                        <div>{"Restaurant Phone Number:   " + restaurant.phoneNumber}</div>
+                        <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>- show me the menu -</Link>
                         <div>----------------</div>
                     </div>
                 ))}
