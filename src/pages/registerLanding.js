@@ -3,7 +3,7 @@ import MainPage from './main';
 import LoginForm from './login';
 import RegisterForm from './register';
 
-class Landing extends React.Component {
+class RegisterLanding extends React.Component {
     constructor(props) {
         super(props)
         // the initial application state
@@ -19,11 +19,6 @@ class Landing extends React.Component {
         this.setState({userId : userId});
     }
 
-    signOut() {
-    // clear out user from state
-    this.setState({user: null})
-    }
-
     render() {
     // Here we pass relevant state to our child components
     // as props. Note that functions are passed using `bind` to
@@ -31,11 +26,11 @@ class Landing extends React.Component {
         return (
             <div>
             { 
-                (this.state.userId) ? <MainPage userId={this.state.userId}/> : <LoginForm stateChanger={this.stateChanger}/>
+                (this.state.userId) ? <MainPage userId={this.state.userId}/> : <RegisterForm stateChanger={this.stateChanger}/>
             }
             </div>
         )
     }
 }
 
-export default Landing;
+export default RegisterLanding;
