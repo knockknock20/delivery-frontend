@@ -24,7 +24,14 @@ class Cart extends React.Component {
             return <div> loading... </div>;
         }
         if (!this.state.items.length) {
-            return <div>Your cart is empty...</div>
+            return (
+                <div>
+                    <div>Your cart is empty...</div>
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                    <br />
+                    <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>---- Go Back To Menu ----</Link>   
+                </div>
+            );
         }
         return (
             <div>

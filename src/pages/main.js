@@ -3,10 +3,6 @@ import {Link} from "react-router-dom";
 
 class MainPage extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     state = {
         loading: true,
         restaurants: [],
@@ -42,7 +38,9 @@ class MainPage extends React.Component {
                         <div>----------------</div>
                     </div>
                 ))}
-                <Link to={ {pathname: "/order/", userId: this.state.userId} }>---- Show Me History Orders ----</Link>
+                <Link to={ {pathname: "/order", userId: this.state.userId} }>---- Show Me History Orders ----</Link>
+                <br />
+                <Link to={ {pathname: "/profile", userId: this.state.userId} }>---- Show My Profile ----</Link>
             </div>
         );
     }

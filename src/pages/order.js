@@ -22,7 +22,13 @@ class Order extends React.Component {
             return <div> loading... </div>;
         }
         if (!this.state.orders.length) {
-            return <div>didn't get any historical orders...</div>
+            return (
+                <div>
+                    <div>didn't get any historical orders...</div>
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                </div>
+                
+            );
         }
         return (
             <div>
