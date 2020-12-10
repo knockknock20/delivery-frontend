@@ -34,13 +34,25 @@ class MainPage extends React.Component {
                         <div>{"Restaurant Name:   " + restaurant.name}</div>
                         <div>{"Restaurant Address:   " + restaurant.address}</div>
                         <div>{"Restaurant Phone Number:   " + restaurant.phoneNumber}</div>
-                        <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>---- show me the menu ----</Link>
+                        <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>
+                            <button type="button">
+                                Show Me Menu
+                            </button>
+                        </Link>
                         <div>----------------</div>
                     </div>
                 ))}
-                <Link to={ {pathname: "/order", userId: this.state.userId} }>---- Show Me History Orders ----</Link>
+                <Link to={ {pathname: "/order", userId: this.state.userId} }>
+                    <button type="button">
+                        Show Me History Orders
+                    </button>
+                </Link>
                 <br />
-                <Link to={ {pathname: "/profile", userId: this.state.userId} }>---- Show My Profile ----</Link>
+                <Link to={ {pathname: "/profile", userId: this.state.userId} }>
+                    <button type="button">
+                        Show My Profile
+                    </button>
+                </Link>
             </div>
         );
     }

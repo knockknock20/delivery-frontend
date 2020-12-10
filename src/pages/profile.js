@@ -25,7 +25,11 @@ class Profile extends React.Component {
             return(
                 <div>
                     <div>didn't get any profile data...</div>
-                    <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >
+                        <button type="button">
+                            Main Page
+                        </button>
+                    </Link>
                 </div>
             );
         }
@@ -40,7 +44,11 @@ class Profile extends React.Component {
                 <div>{"Email:   " + this.state.userData.email}</div>
                 <div>{"Address:   " + this.state.userData.address}</div>
                 <div>--------------------------------------------</div>
-                <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                <Link to={ { pathname: "/", userId: this.state.userId} } >
+                    <button type="button">
+                        Main Page
+                    </button>
+                </Link>
             </div>
             
         );

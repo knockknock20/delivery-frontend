@@ -74,7 +74,11 @@ class LoginForm extends React.Component {
 
                 <div>
                 {/* <h4>Do not have an account yet? </h4> */}
-                <Link to={ { pathname: "/register"} } > - Register - </Link>
+                <Link to={ { pathname: "/register"} } >
+                    <button type="button">
+                        Register
+                    </button>
+                </Link>
                 </div>
                 </div>
             );

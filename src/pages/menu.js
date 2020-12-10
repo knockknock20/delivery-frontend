@@ -83,9 +83,17 @@ class Menu extends React.Component {
                 <div>---Total Items in Cart---</div>
                 <span style={{fontSize: 30}}>{ this.state.count }</span>
                 <div>-------------------------</div>
-                <Link to={ { pathname: "/cart/" + this.state.userId, restaurantId: this.state.restaurantId } }>---- Go To Cart ----</Link>
+                <Link to={ { pathname: "/cart/" + this.state.userId, restaurantId: this.state.restaurantId } }>
+                    <button type="button">
+                        My Cart
+                    </button>
+                </Link>
                 <br />
-                <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                <Link to={ { pathname: "/", userId: this.state.userId} } >
+                    <button type="button">
+                        Main Page
+                    </button>
+                </Link>
             </div>
             
         );

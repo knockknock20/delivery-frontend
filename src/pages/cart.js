@@ -27,9 +27,17 @@ class Cart extends React.Component {
             return (
                 <div>
                     <div>Your cart is empty...</div>
-                    <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >
+                        <button type="button">
+                            Main Page
+                        </button>
+                    </Link>
                     <br />
-                    <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>---- Go Back To Menu ----</Link>   
+                    <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>
+                        <button type="button">
+                            Back To Menu
+                        </button>
+                    </Link>   
                 </div>
             );
         }
@@ -45,11 +53,23 @@ class Cart extends React.Component {
                         <div>----------------</div>
                     </div>
                 ))}
-                <Link to={ { pathname: "/checkout/" + this.state.userId } }>---- Checkout ----</Link>
+                <Link to={ { pathname: "/checkout/" + this.state.userId } }>
+                    <button type="button">
+                        Checkout
+                    </button>
+                </Link>
                 <br />
-                <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>---- Go Back To Menu ----</Link>
+                <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>
+                    <button type="button">
+                        Back To Menu
+                    </button>
+                </Link>
                 <br />
-                <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                <Link to={ { pathname: "/", userId: this.state.userId} } >
+                    <button type="button">
+                        Main Page
+                    </button>
+                </Link>
             </div>
         );
     }

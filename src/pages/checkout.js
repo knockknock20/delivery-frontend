@@ -64,7 +64,11 @@ class Checkout extends React.Component {
                 <div>{ "Total Price: " + this.state.checkout.totalPrice}</div>
                 <div>{ "Order Status: " + this.state.checkout.orderStatus}</div>
 
-                <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                <Link to={ { pathname: "/", userId: this.state.userId} } >
+                    <button type="button">
+                        Main Page
+                    </button>
+                </Link>
             </div>
         );
     }
