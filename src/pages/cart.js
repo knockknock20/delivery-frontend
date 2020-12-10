@@ -6,7 +6,8 @@ class Cart extends React.Component {
     state = {
         loading: true,
         items: [],
-        userId: this.props.match.params.userId
+        userId: this.props.match.params.userId,
+        restaurantId: this.props.location.restaurantId
     };
 
     async componentDidMount() {
@@ -38,6 +39,10 @@ class Cart extends React.Component {
                     </div>
                 ))}
                 <Link to={ { pathname: "/checkout/" + this.state.userId } }>---- Checkout ----</Link>
+                <br />
+                <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>---- Go Back To Menu ----</Link>
+                <br />
+                <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
             </div>
         );
     }

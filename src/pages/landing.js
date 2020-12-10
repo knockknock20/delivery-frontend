@@ -8,7 +8,8 @@ class Landing extends React.Component {
         super(props)
         // the initial application state
         this.state = {
-          userId: null
+        //   userId: null
+            userId: this.props.location.userId
         }
 
         this.stateChanger = this.stateChanger.bind(this);
