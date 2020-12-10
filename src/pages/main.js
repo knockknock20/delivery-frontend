@@ -38,10 +38,11 @@ class MainPage extends React.Component {
                         <div>{"Restaurant Name:   " + restaurant.name}</div>
                         <div>{"Restaurant Address:   " + restaurant.address}</div>
                         <div>{"Restaurant Phone Number:   " + restaurant.phoneNumber}</div>
-                        <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>- show me the menu -</Link>
+                        <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>---- show me the menu ----</Link>
                         <div>----------------</div>
                     </div>
                 ))}
+                <Link to={ {pathname: "/order/", userId: this.state.userId} }>---- Show Me History Orders ----</Link>
             </div>
         );
     }

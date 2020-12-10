@@ -71,12 +71,13 @@ class Menu extends React.Component {
                 <h3>Menu!</h3>
                 {this.state.items.map(item => (
                     <div key={item.id}>
-                        <div>{item.name}</div>
-                        <div>{item.price}</div>
-                        <div>{item.description}</div>
+                        <div>{"Item Name:   " + item.name}</div>
+                        <div>{"Item Price:   $" + item.price}</div>
+                        <div>{"Item Description:   " + item.description}</div>
                         <div>
                             <button id={item.id} onClick={this.handleAdd}> Add to Cart </button>
                         </div>
+                        <div>----------------------------</div>
                     </div>
                 ))}
                 <div>---Total Items in Cart---</div>

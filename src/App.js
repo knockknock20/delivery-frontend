@@ -10,6 +10,7 @@ import Landing from './pages/landing';
 import RegisterLanding from './pages/registerLanding';
 import Cart from './pages/cart';
 import Checkout from './pages/checkout';
+import Order from './pages/order';
 
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/menu/:restaurantId" component={Menu} />
-
+        <Route exact path="/order/" component={Order} />
         <Route exact path="/cart/:userId" component={Cart} />
         <Route exact path="/checkout/:userId" component={Checkout} />
 
