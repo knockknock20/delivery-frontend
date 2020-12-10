@@ -47,7 +47,6 @@ class Menu extends React.Component {
             .then(
                 json => { this.setState({ count: this.state.count + 1}) }
             )
-            //.then(() => {this.props.stateChanger(this.state.count)})
             .catch(error => { console.log(error.message); alert('Item can not be add to cart\n Error: ' + error.message);});
     };
 
@@ -74,8 +73,9 @@ class Menu extends React.Component {
                         </div>
                     </div>
                 ))}
-
+                <div>---Total Items in Cart---</div>
                 <span style={{fontSize: 30}}>{ this.state.count }</span>
+                <div>-------------------------</div>
                 <Link to={ { pathname: "/cart/" + this.state.userId } }>---- Go To Cart ----</Link>
             </div>
             
