@@ -22,15 +22,12 @@ class Menu extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({items: data, loading: false});
-        console.log(data);
     }
 
     handleAdd (event) {
         event.preventDefault();
 
         const itemId = event.target.id;
-        console.log("itemID:" + itemId);
-        console.log("userId:" + this.state.userId);
         const url = "http://localhost:5000/user/item/" + this.state.userId;
 
         const requestOption = {

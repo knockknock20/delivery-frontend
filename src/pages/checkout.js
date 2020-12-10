@@ -15,11 +15,9 @@ class Checkout extends React.Component {
             header: {'Content-Type':'application/json'},
         };
         const url = "http://localhost:5000/user/order/" + this.state.userId;
-        console.log("url:" + url);
         const response = await fetch(url, requestOption);
         const data = await response.json();
         this.setState({checkout: data, loading: false});
-        console.log(data);
     }
 
     render() {
@@ -27,7 +25,17 @@ class Checkout extends React.Component {
             return <div> generating order... </div>;
         }
         if (!this.state.checkout) {
-            return <div>You have no historical order...</div>
+            return (
+                <div>
+                    <div>You have no historical order...</div>
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >
+                        <button type="button">
+                            Main Page
+                        </button>
+                    </Link>
+                </div>
+                
+            ); 
         }
         return (
             <div>
