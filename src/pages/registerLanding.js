@@ -1,6 +1,5 @@
 import React from "react";
 import MainPage from './main';
-import LoginForm from './login';
 import RegisterForm from './register';
 
 class RegisterLanding extends React.Component {

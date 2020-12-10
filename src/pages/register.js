@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 class RegisterForm extends React.Component {
     constructor(props) {

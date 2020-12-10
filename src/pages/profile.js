@@ -9,7 +9,6 @@ class Profile extends React.Component {
         userId: this.props.location.userId,
     };
 
-
     async componentDidMount() {
         const url = "http://localhost:5000/user/" + this.state.userId;   
         const response = await fetch(url);
@@ -33,6 +32,7 @@ class Profile extends React.Component {
                 </div>
             );
         }
+
         return (
             <div>
                 <h3>Your Profile!</h3>
@@ -50,7 +50,6 @@ class Profile extends React.Component {
                     </button>
                 </Link>
             </div>
-            
         );
     }
 }

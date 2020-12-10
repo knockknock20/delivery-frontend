@@ -14,7 +14,6 @@ class Order extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({orders: data, loading: false});
-        console.log(data);
     }
 
     render() {
@@ -31,7 +30,6 @@ class Order extends React.Component {
                         </button>
                     </Link>
                 </div>
-                
             );
         }
         return (

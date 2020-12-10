@@ -35,19 +35,10 @@ class Menu extends React.Component {
         const requestOption = {
             method: 'POST',
             header: { 'Content-Type': 'application/json' },
-            // body: JSON.stringify(
-            //     {
-            //         itemId: itemId
-            //     }
-            // )
             body: itemId
         };
 
         fetch(url, requestOption)
-            // .then(response => response.json())
-            // .then(
-            //     json => { this.setState({ count: this.state.count + 1}) }
-            // )
             .then(() => { this.setState({ count: this.state.count + 1 })})
             .catch(error => { 
                 console.log(error.message); 
@@ -57,14 +48,20 @@ class Menu extends React.Component {
     };
 
     render() {
-        console.log("restaurantId:" + this.state.restaurantId);
-        console.log("----->userId:" + this.state.userId);
-
         if (this.state.loading) {
             return <div> loading... </div>;
         }
         if (!this.state.items.length) {
-            return <div>didn't get any item...</div>
+            return (
+                <div>
+                    <div>didn't get any item...</div>
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >
+                        <button type="button">
+                            Main Page
+                        </button>
+                    </Link>
+                </div>
+            );
         }
         return (
             <div>
