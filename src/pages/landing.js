@@ -1,7 +1,6 @@
 import React from "react";
 import MainPage from './main';
 import LoginForm from './login';
-import RegisterForm from './register';
 
 class Landing extends React.Component {
     constructor(props) {
@@ -16,7 +15,6 @@ class Landing extends React.Component {
     }
 
     stateChanger(userId) {
-        console.log("stateChanger called!!");
         this.setState({userId : userId});
     }
 
