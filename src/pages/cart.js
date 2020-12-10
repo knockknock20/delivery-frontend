@@ -10,11 +10,12 @@ class Cart extends React.Component {
     };
 
     async componentDidMount() {
+        console.log(this.state.userId + "---->here");
         const url = "http://localhost:5000/user/item/" + this.state.userId;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({items: data, loading: false});
-        // console.log(data);
+        console.log(data);
     }
 
     render() {

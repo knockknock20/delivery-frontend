@@ -59,16 +59,11 @@ class LoginForm extends React.Component {
             ).then(() => {this.props.stateChanger(this.state.userId)});
     }
 
-        
-
-
-
     render() {
         if (this.state.toRegister) {
             return <Redirect to='/register' />
         } else {
             return (
-    
                 <div>
                 <form onSubmit={this.handleSignIn.bind(this)}>
                     <h3>Sign in</h3>
@@ -82,10 +77,8 @@ class LoginForm extends React.Component {
                 <Link to={ { pathname: "/register"} } > - Register - </Link>
                 </div>
                 </div>
-            
             );
         }
-        
     }
 }
 

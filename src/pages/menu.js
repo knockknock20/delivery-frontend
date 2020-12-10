@@ -35,24 +35,30 @@ class Menu extends React.Component {
         const requestOption = {
             method: 'POST',
             header: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(
-                {
-                    itemId: itemId
-                }
-            )
+            // body: JSON.stringify(
+            //     {
+            //         itemId: itemId
+            //     }
+            // )
+            body: itemId
         };
 
         fetch(url, requestOption)
-            .then (response => response.json())
-            .then(
-                json => { this.setState({ count: this.state.count + 1}) }
-            )
-            .catch(error => { console.log(error.message); alert('Item can not be add to cart\n Error: ' + error.message);});
+            // .then(response => response.json())
+            // .then(
+            //     json => { this.setState({ count: this.state.count + 1}) }
+            // )
+            .then(() => { this.setState({ count: this.state.count + 1 })})
+            .catch(error => { 
+                console.log(error.message); 
+                alert('Item can not be add to cart\n Error: ' + error.message);
+            }
+        );
     };
 
     render() {
         console.log("restaurantId:" + this.state.restaurantId);
-        console.log("userId:" + this.state.userId);
+        console.log("----->userId:" + this.state.userId);
 
         if (this.state.loading) {
             return <div> loading... </div>;
