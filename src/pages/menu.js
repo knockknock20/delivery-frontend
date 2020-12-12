@@ -22,6 +22,7 @@ class Menu extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({items: data, loading: false});
+        console.log(data);
     }
 
     handleAdd (event) {
@@ -66,33 +67,31 @@ class Menu extends React.Component {
             });
     };
 
-    // currentItemQuantity (itemId) {
-    //     const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + itemId;
-    //     return fetch(url, {
-    //         method: "GET",
-    //         headers: { 'Content-Type': 'application/json' },
-    //     })
-    //     .then( (response) => {
-    //         console.log("currentItemQuantity:" + response);
-    //         return response.text();
-    //      })
-    //      .catch(error => console.warn(error));
-    // }
-        
- 
+    currentItemQuantity (itemId) {
+        const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + itemId;
+        return fetch(url, {
+            method: "GET",
+            headers: { 'Content-Type': 'text/html' },
+        })
+        .then( (response) => {
+            console.log("currentItemQuantity:" + response);
+            return response;
+         })
+         .catch(error => console.warn(error));
+    }
 
-    // totalItemInCart () {
-    //     const url = "http://localhost:5000/user/item/quantity/" + this.state.userId;
-    //     return fetch(url, {
-    //         method: "GET",
-    //         headers: { 'Content-Type': 'application/json' },
-    //     })
-    //     .then( (response) => {
-    //         console.log("totalItemInCart:" + response);
-    //         return response.text();
-    //      })
-    //      .catch(error => console.warn(error));
-    // }
+    totalItemInCart () {
+        const url = "http://localhost:5000/user/item/total/" + this.state.userId;
+        return fetch(url, {
+            method: "GET",
+            headers: { 'Content-Type': 'text/html' },
+        })
+        .then( (response) => {
+            console.log("totalItemInCart:" + response);
+            return response;
+         })
+         .catch(error => console.warn(error));
+    }
 
     render() {
         console.log("restaurantId:" + this.state.restaurantId);
