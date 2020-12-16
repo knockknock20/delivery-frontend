@@ -137,9 +137,7 @@ class Menu extends React.Component {
                         <div>----------------------------</div>
                     </div>
                 ))}
-                <div>---Total Items in Cart---</div>
-                <div>----Following is temperate count----------</div>
-                <div>-------------------------</div>
+                
                 <Link to={ { pathname: "/cart/" + this.state.userId, restaurantId: this.state.restaurantId } }>---- Go To Cart ----</Link>
                 <br />
                 <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
