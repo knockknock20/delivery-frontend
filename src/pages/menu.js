@@ -29,11 +29,12 @@ class Menu extends React.Component {
             item.quantity = result === "null" ? "0" : result;
         })
 
+        console.log(data);
         this.setState({items: data, loading: false});
     }
 
     async componentDidMount() {
-        this.helper();
+        await this.helper();
     }
 
     async handleAdd (event) {
@@ -77,40 +78,6 @@ class Menu extends React.Component {
         
         await this.helper();
     };
-
-    // {
-    //     method: "GET",
-    //     headers: { 'Content-Type': 'text/html' },
-    // }
-
-    // currentItemQuantity (itemId) {
-    //     const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + itemId;
-    //     return fetch(url)
-    //     .then(response => response.text())
-    //     .then(response => {return response})
-    //     .catch(error => console.warn(error));
-    // }
-
-    
-
-    // async currentItemQuantity (itemId) {
-    //     const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + itemId;
-    //     return await fetch(url);
-    // }
-
-    // totalItemInCart () {
-    //     const url = "http://localhost:5000/user/item/total/" + this.state.userId;
-    //     return fetch(url, {
-    //         method: "GET",
-    //         headers: { 'Content-Type': 'text/html' },
-    //     })
-    //     .then( (response) => {
-    //         console.log("totalItemInCart:" + response);
-    //         return response;
-    //      })
-    //      .catch(error => console.warn(error));
-    // }
-
 
     render() {
         if (this.state.loading) {
