@@ -23,11 +23,16 @@ class Menu extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
 
-        await data.map(async (item) => {
+        // await data.map(async (item) => {
+        //     const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
+        //     const result = await (await fetch(url)).text();
+        //     item.quantity = result === "null" ? "0" : result;
+        // })
+        await Promise.all(data.map(async (item) => {
             const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
             const result = await (await fetch(url)).text();
             item.quantity = result === "null" ? "0" : result;
-        })
+        }));
 
         console.log(data);
         this.setState({items: data, loading: false});
