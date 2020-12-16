@@ -1,5 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "./main.css";
+// import 'purecss/build/pure.css';
+import Button from 'react-bootstrap/Button';
 
 class MainPage extends React.Component {
 
@@ -26,18 +29,16 @@ class MainPage extends React.Component {
         }
 
         return (
-            <div>
+            <div className="mainPage">
                 <h3>Welcome to Knock-Knock Delivery!!!</h3>
                 <h4>Restaurants List: </h4>
                 {this.state.restaurants.map(restaurant => (
-                    <div key={restaurant.id}>
+                    <div className="resCard" key={restaurant.id}>
                         <div>{"Restaurant Name:   " + restaurant.name}</div>
                         <div>{"Restaurant Address:   " + restaurant.address}</div>
                         <div>{"Restaurant Phone Number:   " + restaurant.phoneNumber}</div>
                         <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>
-                            <button type="button">
-                                Show Me Menu
-                            </button>
+                            <Button variant="primary">Show Menu</Button>
                         </Link>
                         <div>----------------</div>
                     </div>
