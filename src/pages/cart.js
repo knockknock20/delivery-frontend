@@ -75,7 +75,7 @@ class Cart extends React.Component {
                         <div class="card" key={item.id}> 
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper" className="images">
-                                    <Image className="images" src={item.imageURL} width="200px" height="200px" alt="Card image cap" />
+                                    <Image className="images" src={item.imageURL} width="250px" height="240px" alt="Card image cap" />
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">{item.name}</h4>
