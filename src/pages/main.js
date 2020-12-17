@@ -5,6 +5,7 @@ import 'purecss/build/pure.css';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Image from "react-bootstrap/Image"
 
 
 class MainPage extends React.Component {
@@ -30,7 +31,8 @@ class MainPage extends React.Component {
         if (!this.state.restaurants.length) {
             return <div>didn't get any restaurants...</div>
         }
-
+        
+        console.log(this.state.restaurants);
         return (
             <div className="mainPage">
                 <Navbar fixed="top" bg="dark" variant="dark">
@@ -50,7 +52,7 @@ class MainPage extends React.Component {
                         <div class="card" key={restaurant.id}>
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
-                                    <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap" />
+                                    <Image width="330px" height="250px" src={restaurant.logoURL} alt="Card image cap" rounded/>
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">{restaurant.name}</h4>
