@@ -32,7 +32,7 @@ class Order extends React.Component {
             return (
                 <div>
                     <Navbar fixed="top" bg="dark" variant="dark">
-                        <Navbar.Brand href="#home">Knock Knock - Cart</Navbar.Brand>
+                        <Navbar.Brand href="#home">Knock Knock - History Orders</Navbar.Brand>
                         <Nav className="ml-auto">
                             <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
                                 Home
@@ -55,7 +55,7 @@ class Order extends React.Component {
         return (
             <div className="orders">
                 <Navbar fixed="top" bg="dark" variant="dark">
-                    <Navbar.Brand href="#home">Knock Knock - Historical Orders</Navbar.Brand>
+                    <Navbar.Brand href="#home">Knock Knock - History Orders</Navbar.Brand>
                     <Nav className="ml-auto">
                         <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
                             Home
