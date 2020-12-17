@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import "../style/image.css";
+import backendURL from "./backendURL";
 
 class Order extends React.Component {
 
@@ -17,7 +18,8 @@ class Order extends React.Component {
     };
 
     async componentDidMount() {
-        const url = "http://localhost:5000/user/order/" + this.state.userId;   
+        // const url = "http://localhost:5000/user/order/" + this.state.userId; 
+        const url = backendURL + "user/order/" + this.state.userId;  
         const response = await fetch(url);
         const data = await response.json();
         this.setState({orders: data, loading: false});

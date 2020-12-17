@@ -2,6 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
+import backendURL from "./backendURL";
 
 class RegisterForm extends React.Component {
     constructor(props) {
@@ -41,7 +42,8 @@ class RegisterForm extends React.Component {
             )
         };
 
-        fetch("http://localhost:5000/register", requestOption)
+        // fetch("http://localhost:5000/register", requestOption)
+        fetch(backendURL + "register", requestOption)
             .then(response => response.json())
             .then(
                 json => { this.setState(

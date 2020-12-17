@@ -10,7 +10,6 @@ import Image from "react-bootstrap/Image"
 import backendURL from "./backendURL";
 
 
-
 class MainPage extends React.Component {
 
     state = {
@@ -21,7 +20,6 @@ class MainPage extends React.Component {
 
     async componentDidMount() {
         // const url = "http://localhost:5000/restaurant";
-        // const url = process.env.REACT_APP_RESTAURANT;
         const url = backendURL + "restaurant";
         const response = await fetch(url);
         const data = await response.json();

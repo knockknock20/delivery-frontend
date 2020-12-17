@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "../style/profile.css";
 import Button from "react-bootstrap/Button";
+import backendURL from "./backendURL";
 
 class Profile extends React.Component {
 
@@ -15,7 +16,8 @@ class Profile extends React.Component {
     };
 
     async componentDidMount() {
-        const url = "http://localhost:5000/user/" + this.state.userId;   
+        // const url = "http://localhost:5000/user/" + this.state.userId;   
+        const url = backendURL + "user/" + this.state.userId; 
         const response = await fetch(url);
         const data = await response.json();
         this.setState({userData: data, loading: false});

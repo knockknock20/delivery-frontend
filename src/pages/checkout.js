@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import "../style/checkout.css";
 import Image from "react-bootstrap/Image";
 import "../style/image.css";
+import backendURL from "./backendURL";
 
 class Checkout extends React.Component {
 
@@ -21,7 +22,8 @@ class Checkout extends React.Component {
             method: "POST",
             header: {'Content-Type':'application/json'},
         };
-        const url = "http://localhost:5000/user/order/" + this.state.userId;
+        // const url = "http://localhost:5000/user/order/" + this.state.userId;
+        const url = backendURL + "user/order/" + this.state.userId;
         const response = await fetch(url, requestOption);
         const data = await response.json();
         this.setState({checkout: data, loading: false});

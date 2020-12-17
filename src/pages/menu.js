@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Image from "react-bootstrap/Image";
 import "../style/card.css";
 import "../style/image.css";
+import backendURL from "./backendURL";
 
 class Menu extends React.Component {
 
@@ -25,12 +26,14 @@ class Menu extends React.Component {
     }
 
     async helper() {
-        const url = "http://localhost:5000/restaurant/item/" + this.state.restaurantId;   
+        // const url = "http://localhost:5000/restaurant/item/" + this.state.restaurantId; 
+        const url = backendURL + "restaurant/item/" + this.state.restaurantId;   
         const response = await fetch(url);
         const data = await response.json();
 
         await Promise.all(data.map(async (item) => {
-            const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
+            // const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
+            const url = backendURL + "user/item/quantity/" + this.state.userId + "/" + item.id;
             const result = await (await fetch(url)).text();
             item.quantity = result === "null" ? "0" : result;
         }));
@@ -47,10 +50,8 @@ class Menu extends React.Component {
         event.preventDefault();
 
         const itemId = event.target.id;
-        const url = "http://localhost:5000/user/item/" + this.state.userId;
-
-        console.log("add performed");
-        console.log(itemId);
+        // const url = "http://localhost:5000/user/item/" + this.state.userId;
+        const url = backendURL + "user/item/" + this.state.userId;
 
         const requestOption = {
             method: 'POST',
@@ -69,9 +70,10 @@ class Menu extends React.Component {
 
     async handleRemove (event) {
         event.preventDefault();
-
+        
         const itemId = event.target.id;
-        const url = "http://localhost:5000/user/item/" + this.state.userId;
+        // const url = "http://localhost:5000/user/item/" + this.state.userId;
+        const url = backendURL + "user/item/" + this.state.userId;
 
         console.log("remove performed");
         console.log(itemId);

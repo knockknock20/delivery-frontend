@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import "../style/card.css";
 import Image from "react-bootstrap/Image";
 import "../style/image.css";
+import backendURL from "./backendURL";
 
 class Cart extends React.Component {
 
@@ -17,7 +18,8 @@ class Cart extends React.Component {
     };
 
     async componentDidMount() {
-        const url = "http://localhost:5000/user/item/" + this.state.userId;
+        // const url = "http://localhost:5000/user/item/" + this.state.userId;
+        const url = backendURL + "user/item/" + this.state.userId;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({items: data, loading: false});
