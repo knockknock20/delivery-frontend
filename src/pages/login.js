@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import "../style/login.css";
+import backendURL from "./backendURL";
 
 class LoginForm extends React.Component {
     state = { toRegister: false }
@@ -46,7 +47,8 @@ class LoginForm extends React.Component {
         };
         console.log(this.state.email);
         console.log(this.state.password);
-        fetch("http://localhost:5000/user/login", requestOption)
+        // fetch("http://localhost:5000/user/login", requestOption)
+        fetch(backendURL + "user/login", requestOption)
             .then(response => response.json())
             .then(
                 json => { 
