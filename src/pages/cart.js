@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import "../style/card.css";
 import Image from "react-bootstrap/Image";
+import "../style/image.css";
 
 class Cart extends React.Component {
 
@@ -73,7 +74,7 @@ class Cart extends React.Component {
                     {this.state.items.map(item => (
                         <div class="card" key={item.id}> 
                             <div class="card-horizontal">
-                                <div class="img-square-wrapper">
+                                <div class="img-square-wrapper" className="images">
                                     <Image className="images" src={item.imageURL} width="200px" height="200px" alt="Card image cap" />
                                 </div>
                                 <div class="card-body">

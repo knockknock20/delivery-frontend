@@ -6,6 +6,7 @@ import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import "../style/image.css";
 
 class Order extends React.Component {
 
@@ -30,12 +31,24 @@ class Order extends React.Component {
         if (!this.state.orders.length) {
             return (
                 <div>
-                    <div>didn't get any historical orders...</div>
-                    <Link to={ { pathname: "/", userId: this.state.userId} } >
-                        <button type="button">
-                            Main Page
-                        </button>
-                    </Link>
+                    <Navbar fixed="top" bg="dark" variant="dark">
+                        <Navbar.Brand href="#home">Knock Knock - Cart</Navbar.Brand>
+                        <Nav className="ml-auto">
+                            <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
+                                Home
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar>
+
+                    <div className="emptyCart">
+                        <p>Didn't get any history orders...</p>
+                        <br />
+                        <Link to={ { pathname: "/", userId: this.state.userId} } >
+                            <Button variant="outline-secondary" block>
+                                Main Page
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             );
         }
@@ -68,7 +81,7 @@ class Order extends React.Component {
                                         {order.orderItems.map(orderItem => (
                                             <div class="card" key={orderItem.id}> 
                                                 <div class="card-horizontal">
-                                                    <div class="img-square-wrapper">
+                                                    <div class="img-square-wrapper" className="images">
                                                         <Image className="images" src={orderItem.imageURL} width="200px" height="200px" alt="Card image cap" />
                                                     </div>
                                                     <div class="card-body">

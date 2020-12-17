@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "../style/card.css";
 import 'purecss/build/pure.css';
+import "../style/image.css";
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -51,7 +52,7 @@ class MainPage extends React.Component {
                     {this.state.restaurants.map(restaurant => (
                         <div class="card" key={restaurant.id}>
                             <div class="card-horizontal">
-                                <div class="img-square-wrapper">
+                                <div class="img-square-wrapper" className="images">
                                     <Image className="images" width="330px" height="250px" src={restaurant.logoURL} alt="Card image cap" rounded/>
                                 </div>
                                 <div class="card-body">

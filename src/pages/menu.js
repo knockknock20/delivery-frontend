@@ -119,7 +119,7 @@ class Menu extends React.Component {
                             <div class="card" key={item.id}>
                                 <div class="card-horizontal">
                                     <div class="img-square-wrapper" className="images">
-                                        <Image src={item.imageURL}  width="220px" height="238px" alt="Card image cap" rounded/>
+                                        <Image  src={item.imageURL} width="250px" height="240px" alt="Card image cap" rounded/>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title">{item.name}</h4>
