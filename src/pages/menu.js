@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Image from "react-bootstrap/Image";
 import "../style/card.css";
+import "../style/image.css";
 
 class Menu extends React.Component {
 
@@ -117,8 +118,8 @@ class Menu extends React.Component {
                         <div className="menuItemCard">
                             <div class="card" key={item.id}>
                                 <div class="card-horizontal">
-                                    <div class="img-square-wrapper">
-                                        <Image class="" src={item.imageURL}  width="220px" height="238px" alt="Card image cap" rounded/>
+                                    <div class="img-square-wrapper" className="images">
+                                        <Image src={item.imageURL}  width="220px" height="238px" alt="Card image cap" rounded/>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title">{item.name}</h4>

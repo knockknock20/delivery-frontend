@@ -52,7 +52,7 @@ class MainPage extends React.Component {
                         <div class="card" key={restaurant.id}>
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
-                                    <Image width="330px" height="250px" src={restaurant.logoURL} alt="Card image cap" rounded/>
+                                    <Image className="images" width="330px" height="250px" src={restaurant.logoURL} alt="Card image cap" rounded/>
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">{restaurant.name}</h4>

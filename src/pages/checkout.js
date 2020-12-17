@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "../style/checkout.css";
+import Image from "react-bootstrap/Image";
 
 class Checkout extends React.Component {
 
@@ -75,7 +76,7 @@ class Checkout extends React.Component {
                         <div class="card" key={orderItem.id}> 
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
-                                    <img class="" src={orderItem.imageURL} width="200px" height="200px" alt="Card image cap" />
+                                    <Image className="images" src={orderItem.imageURL} width="200px" height="200px" alt="Card image cap" />
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">{orderItem.name}</h4>
