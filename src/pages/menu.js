@@ -1,5 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
+import Image from "react-bootstrap/Image";
+import "../style/card.css";
 
 class Menu extends React.Component {
 
@@ -23,11 +28,6 @@ class Menu extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
 
-        // await data.map(async (item) => {
-        //     const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
-        //     const result = await (await fetch(url)).text();
-        //     item.quantity = result === "null" ? "0" : result;
-        // })
         await Promise.all(data.map(async (item) => {
             const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
             const result = await (await fetch(url)).text();
@@ -47,6 +47,9 @@ class Menu extends React.Component {
 
         const itemId = event.target.id;
         const url = "http://localhost:5000/user/item/" + this.state.userId;
+
+        console.log("add performed");
+        console.log(itemId);
 
         const requestOption = {
             method: 'POST',
@@ -68,6 +71,9 @@ class Menu extends React.Component {
 
         const itemId = event.target.id;
         const url = "http://localhost:5000/user/item/" + this.state.userId;
+
+        console.log("remove performed");
+        console.log(itemId);
 
         const requestOption = {
             method: 'DELETE',
@@ -94,25 +100,49 @@ class Menu extends React.Component {
         
         return (
             <div>
-                <h3>Menu!</h3>
-                {this.state.items.map(item => (
-                    <div key={item.id}>
-                        <div>{"Item Name:   " + item.name}</div>
-                        <div>{"Item Price:   $" + item.price}</div>
-                        <div>{"Item Description:   " + item.description}</div>
-                        <div>{"Current Quantity in Cart:   " + item.quantity}</div>
-                        
-                        <div>
-                            <button id={item.id} onClick={this.handleAdd}> Add to Cart </button>
-                            <button id={item.id} onClick={this.handleRemove}> Remove from Cart </button>
-                        </div>
-                        <div>----------------------------</div>
-                    </div>
-                ))}
+                <Navbar fixed="top" bg="dark" variant="dark">
+                    <Navbar.Brand href="#home">Knock Knock - Menu</Navbar.Brand>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
+                            Home
+                        </Nav.Link>
+                        <Nav.Link as={Link} to={ { pathname: "/cart/" + this.state.userId, restaurantId: this.state.restaurantId } }>
+                            Cart
+                        </Nav.Link>
+                    </Nav>
+                </Navbar>
                 
-                <Link to={ { pathname: "/cart/" + this.state.userId, restaurantId: this.state.restaurantId } }>---- Go To Cart ----</Link>
-                <br />
-                <Link to={ { pathname: "/", userId: this.state.userId} } >---- Go To Main Page ----</Link>
+                <div className="items">
+                    {this.state.items.map(item => (
+                        <div className="menuItemCard">
+                            <div class="card" key={item.id}>
+                                <div class="card-horizontal">
+                                    <div class="img-square-wrapper">
+                                        <Image class="" src={item.imageURL}  width="220px" height="238px" alt="Card image cap" rounded/>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">{item.name}</h4>
+                                        <p class="card-text">{"Price:   $" + item.price}</p>
+                                        <p class="card-text">{item.description}</p>
+                                        <p class="card-text">{"Current Quantity in Cart:   " + item.quantity}</p>
+                                        <div>
+                                            <Button className="addRemoveButton" id={item.id} variant="outline-secondary" onClick={this.handleRemove}>  -  </Button>
+                                            <Button className="addRemoveButton" id={item.id} variant="outline-secondary" onClick={this.handleAdd}>  +  </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+
+                    <div className="cartButtonGroup">
+                        <Link to={ { pathname: "/cart/" + this.state.userId, restaurantId: this.state.restaurantId } }>
+                            <Button variant="outline-secondary" block>
+                                Cart
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
             </div>
             
         );

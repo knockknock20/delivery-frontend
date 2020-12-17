@@ -1,5 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Accordion from "react-bootstrap/Accordion";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 class Order extends React.Component {
 
@@ -17,6 +22,7 @@ class Order extends React.Component {
     }
 
     render() {
+        console.log(this.state.orders);
         if (this.state.loading) {
             return <div> loading... </div>;
         }
@@ -33,33 +39,53 @@ class Order extends React.Component {
             );
         }
         return (
-            <div>
-                <h3>Historical Orders!</h3>
-                {this.state.orders.map(order => (
-                    <div key={order.id}>
-                        <div>{"Order Timestamp:   " 
-                        + order.orderDate.year + "-" + order.orderDate.monthValue + "-" + order.orderDate.dayOfMonth 
-                        + "  " 
-                        + order.orderTime.hour + ":" + order.orderTime.minute + ":" + order.orderTime.second}</div>
-                        {order.orderItems.map(orderItem => (
-                            <div key={orderItem.id}>
-                                <div> **** Item **** </div>
-                                <div>{"Item Name:   " + orderItem.name}</div>
-                                <div>{"Item Price:   $" + orderItem.price}</div>
-                                <div>{"Item Description:   " + orderItem.description}</div>
-                                <br />
-                            </div>
-                        ))}
-                        <div>----------------------------</div>
-                    </div>
-                ))}
-                <Link to={ { pathname: "/", userId: this.state.userId} } >
-                    <button type="button">
-                        Main Page
-                    </button>
-                </Link>
-            </div>
-            
+            <div className="orders">
+                <Navbar fixed="top" bg="dark" variant="dark">
+                    <Navbar.Brand href="#home">Knock Knock - Historical Orders</Navbar.Brand>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
+                            Home
+                        </Nav.Link>
+                    </Nav>
+                </Navbar>
+
+                <Accordion className="orderAccordions" defaultActiveKey="0">
+                    {this.state.orders.map(order => (
+                        <Card>
+                            <Card.Header>
+                            <Accordion.Toggle as={Button} variant="link" eventKey={order.id}>
+                                <div>{"Order Time:  " +
+                                    order.orderDate.year + "-" + order.orderDate.monthValue + "-" + order.orderDate.dayOfMonth 
+                                    + "  " 
+                                    + order.orderTime.hour + ":" + order.orderTime.minute + ":" + order.orderTime.second}
+                                </div>
+                            </Accordion.Toggle>
+                            </Card.Header>
+                            <Accordion.Collapse eventKey={order.id}>
+                                <Card.Body>
+                                    <div>
+                                        {order.orderItems.map(orderItem => (
+                                            <div class="card" key={orderItem.id}> 
+                                                <div class="card-horizontal">
+                                                    <div class="img-square-wrapper">
+                                                        <img class="" src={orderItem.imageURL} width="200px" height="200px" alt="Card image cap" />
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">{orderItem.name}</h4>
+                                                        <div class="card-text">{"Item Price:   $" + orderItem.price}</div>
+                                                        <div class="card-text">{"Item Description:   " + orderItem.description}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                        <div class="card-text">{"Total Price:   $" + order.totalPrice}</div>
+                                    </div>
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                    ))}
+                </Accordion>
+            </div>   
         );
     }
 }

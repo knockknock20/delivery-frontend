@@ -1,4 +1,7 @@
 import React from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
 
 class RegisterForm extends React.Component {
     constructor(props) {
@@ -10,6 +13,7 @@ class RegisterForm extends React.Component {
             gender: '',
             phoneNumber: '',
             email: '',
+            imageURL: '',
             address: '',
             password: ''
         };
@@ -30,6 +34,7 @@ class RegisterForm extends React.Component {
                     gender: this.state.gender,
                     phoneNumber: this.state.phoneNumber,
                     email: this.state.email,
+                    imageURL: this.state.imageURL,
                     address: this.state.address,
                     password: this.state.password
                 }
@@ -46,6 +51,7 @@ class RegisterForm extends React.Component {
                         gender: json.gender,
                         phoneNumber: json.phoneNumber,
                         email: json.email,
+                        imageURL: json.imageURL,
                         address: json.address,
                         password: json.password,
                         userId: json.id
@@ -56,18 +62,59 @@ class RegisterForm extends React.Component {
 
         render() {
             return (
-                <form onSubmit={this.handleRegister.bind(this)}>
-                    <h3>Welcome to the registration page :)</h3>
-                    <h3>It seems that you have not registered yet, please register first :)</h3>
-                    <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} placeholder="First Name" />
-                    <br/><input type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} placeholder="Last Name" />
-                    <br/><input type="text" name="gender" value={this.state.gender} onChange={this.handleInputChange} placeholder="Gender" />
-                    <br/><input type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleInputChange} placeholder="Phone Number" />
-                    <br/><input type="text" name="email" value={this.state.email} onChange={this.handleInputChange} placeholder="Email" />
-                    <br/><input type="text" name="address" value={this.state.address} onChange={this.handleInputChange} placeholder="Address" />
-                    <br/><input type="text" name="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Password" />
-                    <br/><input type="submit" value="Register" />
-                </form>
+                <div>
+                    <Navbar fixed="top" bg="dark" variant="dark">
+                        <Navbar.Brand href="#home">Knock Knock</Navbar.Brand>
+                    </Navbar>
+
+                    <div className="loginForm">
+                        <Form onSubmit={this.handleRegister.bind(this)}>
+                            <Form.Group controlId="formBasicFirstName">
+                                <Form.Label>First Name</Form.Label>
+                                <Form.Control name="firstName" value={this.state.firstName} onChange={this.handleInputChange} type="text" placeholder="First Name" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicLastName">
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control name="lastName" value={this.state.lastName} onChange={this.handleInputChange} type="text" placeholder="Last Name" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicGender">
+                                <Form.Label>Gender</Form.Label>
+                                <Form.Control name="gender" value={this.state.gender} onChange={this.handleInputChange} type="text" placeholder="Gender" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicPhoneNumber">
+                                <Form.Label>Phone Number</Form.Label>
+                                <Form.Control name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleInputChange} type="text" placeholder="Phone Number" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control name="email" value={this.state.email} onChange={this.handleInputChange} type="email" placeholder="Email" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicAddress">
+                                <Form.Label>Address</Form.Label>
+                                <Form.Control name="address" value={this.state.address} onChange={this.handleInputChange} type="text" placeholder="Address" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicImageURL">
+                                <Form.Label>Image URL</Form.Label>
+                                <Form.Control name="imageURL" value={this.state.imageURL} onChange={this.handleInputChange} type="text" placeholder="Image URL" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control name="password" value={this.state.password} onChange={this.handleInputChange} type="password" placeholder="Password" />
+                            </Form.Group>
+
+                            <Button variant="outline-secondary" type="submit" block>
+                                Register
+                            </Button>
+                        </Form>
+                    </div>
+                </div>
             );
         }
 

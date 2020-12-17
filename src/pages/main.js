@@ -1,8 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import "./main.css";
-// import 'purecss/build/pure.css';
+import "../style/card.css";
+import 'purecss/build/pure.css';
 import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+
 
 class MainPage extends React.Component {
 
@@ -30,30 +33,38 @@ class MainPage extends React.Component {
 
         return (
             <div className="mainPage">
-                <h3>Welcome to Knock-Knock Delivery!!!</h3>
-                <h4>Restaurants List: </h4>
-                {this.state.restaurants.map(restaurant => (
-                    <div className="resCard" key={restaurant.id}>
-                        <div>{"Restaurant Name:   " + restaurant.name}</div>
-                        <div>{"Restaurant Address:   " + restaurant.address}</div>
-                        <div>{"Restaurant Phone Number:   " + restaurant.phoneNumber}</div>
-                        <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>
-                            <Button variant="primary">Show Menu</Button>
-                        </Link>
-                        <div>----------------</div>
-                    </div>
-                ))}
-                <Link to={ {pathname: "/order", userId: this.state.userId} }>
-                    <button type="button">
-                        Show Me History Orders
-                    </button>
-                </Link>
-                <br />
-                <Link to={ {pathname: "/profile", userId: this.state.userId} }>
-                    <button type="button">
-                        Show My Profile
-                    </button>
-                </Link>
+                <Navbar fixed="top" bg="dark" variant="dark">
+                    <Navbar.Brand href="#home">Knock Knock</Navbar.Brand>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to={ {pathname: "/profile", userId: this.state.userId} }>
+                            Profile
+                        </Nav.Link>
+                        <Nav.Link as={Link} to={ {pathname: "/order", userId: this.state.userId} }>
+                            Orders
+                        </Nav.Link>
+                    </Nav>
+                </Navbar>
+
+                <div className="restaurants">
+                    {this.state.restaurants.map(restaurant => (
+                        <div class="card" key={restaurant.id}>
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap" />
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">{restaurant.name}</h4>
+                                    <p class="card-text">{restaurant.address}</p>
+                                    <p class="card-text">{restaurant.description}</p>
+                                    <Link to={ { pathname: "/menu/" + restaurant.id, userId: this.state.userId } }>
+                                        <Button variant="outline-secondary">Menu</Button>
+                                    </Link>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     }

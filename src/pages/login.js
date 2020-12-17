@@ -1,6 +1,9 @@
 import React from "react";
-import RegisterForm from './register';
 import {Link, Redirect} from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
+import "../style/login.css";
 
 class LoginForm extends React.Component {
     state = { toRegister: false }
@@ -17,10 +20,12 @@ class LoginForm extends React.Component {
     }
 
     handleInputChange(event) {
+        console.log("called!!");
+
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
+        
         this.setState({
             [name]: value
         });
@@ -39,7 +44,8 @@ class LoginForm extends React.Component {
                 }
             )
         };
-
+        console.log(this.state.email);
+        console.log(this.state.password);
         fetch("http://localhost:5000/user/login", requestOption)
             .then(response => response.json())
             .then(
@@ -49,7 +55,6 @@ class LoginForm extends React.Component {
                     } else {
                         this.setState(
                             {   
-                                // what if the returned json is null -> how to direct to register page?
                                 email: json.email,
                                 password: json.password,
                                 userId: json.id
@@ -65,23 +70,34 @@ class LoginForm extends React.Component {
         } else {
             return (
                 <div>
-                <form onSubmit={this.handleSignIn.bind(this)}>
-                    <h3>Sign in</h3>
-                    <input type="text" name="email" value={this.state.email} onChange={this.handleInputChange} placeholder="enter you username" />
-                    <br />
-                    <input type="password" name="password" value={this.state.password} onChange={this.handleInputChange} placeholder="enter password" />
-                    <br />
-                    <input type="submit" value="Login" />
-                </form>
+                    <Navbar fixed="top" bg="dark" variant="dark">
+                        <Navbar.Brand href="#home">Knock Knock</Navbar.Brand>
+                    </Navbar>
+                    
+                    <div className="loginForm">
+                        <Form onSubmit={this.handleSignIn.bind(this)}>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control name="email" value={this.state.email} onChange={this.handleInputChange} type="email" placeholder="Enter email" />
+                            </Form.Group>
 
-                <div>
-                {/* <h4>Do not have an account yet? </h4> */}
-                <Link to={ { pathname: "/register"} } >
-                    <button type="button">
-                        Register
-                    </button>
-                </Link>
-                </div>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control name="password" value={this.state.password} onChange={this.handleInputChange} type="password" placeholder="Password" />
+                            </Form.Group>
+
+                            <Button variant="outline-secondary" type="submit" block>
+                                Login
+                            </Button>
+                            <br />
+                            <Form.Text className="text-muted">
+                                New to Knock Knock?
+                            </Form.Text>
+                            <Link to={ { pathname: "/register"} } >
+                                Register
+                            </Link>
+                        </Form>
+                    </div>
                 </div>
             );
         }

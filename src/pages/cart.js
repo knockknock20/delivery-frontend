@@ -1,5 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import "../style/card.css";
 
 class Cart extends React.Component {
 
@@ -24,50 +28,76 @@ class Cart extends React.Component {
         if (!this.state.items.length) {
             return (
                 <div>
-                    <div>Your cart is empty...</div>
-                    <Link to={ { pathname: "/", userId: this.state.userId} } >
-                        <button type="button">
-                            Main Page
-                        </button>
-                    </Link>
-                    <br />
-                    <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>
-                        <button type="button">
-                            Back To Menu
-                        </button>
-                    </Link>   
+                    <Navbar fixed="top" bg="dark" variant="dark">
+                        <Navbar.Brand href="#home">Knock Knock - Cart</Navbar.Brand>
+                        <Nav className="ml-auto">
+                            <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
+                                Home
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar>
+
+
+                    <div className="emptyCart">
+                        <p>Your cart is empty...</p>
+                        <br />
+                        <Link to={ { pathname: "/", userId: this.state.userId} } >
+                            <Button variant="outline-secondary" block>
+                                Main Page
+                            </Button>
+                        </Link>
+                        <br />
+                        <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>
+                            <Button variant="outline-secondary" block>
+                                Back To Menu
+                            </Button>
+                        </Link>   
+                    </div>
                 </div>
             );
         }
         return (
             <div>
-                <h3>Cart!</h3>
-                {this.state.items.map(item => (
-                    <div key={item.id}>
-                        <div>{"Name:   " + item.name}</div>
-                        <div>{"Price:   " + item.price}</div>
-                        <div>{"Description:   " + item.description}</div>
-                        <div>{"Quantity:   " + item.quantityInCart}</div>
-                        <div>----------------</div>
+                <Navbar fixed="top" bg="dark" variant="dark">
+                    <Navbar.Brand href="#home">Knock Knock - Cart</Navbar.Brand>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
+                            Home
+                        </Nav.Link>
+                    </Nav>
+                </Navbar>
+
+
+                <div className="cartItems">
+                    {this.state.items.map(item => (
+                        <div class="card" key={item.id}> 
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="" src={item.imageURL} width="200px" height="200px" alt="Card image cap" />
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">{item.name}</h4>
+                                    <p class="card-text">Price:   ${item.price}</p>
+                                    <p class="card-text">Quantity:   {item.quantityInCart}</p>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    ))}
+                    <div className="cartButtonGroup">
+                        <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>
+                            <Button variant="outline-secondary" block>
+                                Back To Menu
+                            </Button>
+                        </Link>
+                        <br />
+                        <Link to={ { pathname: "/checkout/" + this.state.userId } } >
+                            <Button variant="outline-secondary" block>
+                                Checkout
+                            </Button>
+                        </Link>
                     </div>
-                ))}
-                <Link to={ { pathname: "/checkout/" + this.state.userId } }>
-                    <button type="button">
-                        Checkout
-                    </button>
-                </Link>
-                <br />
-                <Link to={ {pathname: "/menu/" + this.state.restaurantId, userId: this.state.userId} }>
-                    <button type="button">
-                        Back To Menu
-                    </button>
-                </Link>
-                <br />
-                <Link to={ { pathname: "/", userId: this.state.userId} } >
-                    <button type="button">
-                        Main Page
-                    </button>
-                </Link>
+                </div>
             </div>
         );
     }

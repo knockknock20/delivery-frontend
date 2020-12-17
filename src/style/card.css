@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap');
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.restaurants {
+    margin-top: 70px;
+    margin-right: 200px;
+    margin-left: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.items {
+    margin-top: 70px;
+    margin-right: 200px;
+    margin-left: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.orders {
+    margin-top: 70px;
+    margin-right: 200px;
+    margin-left: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cartItems {
+    margin-top: 70px;
+    margin-right: 350px;
+    margin-left: 350px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.emptyCart {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 200px;
+    margin-right: 550px;
+    margin-left: 550px;
+}
+
+.cartButtonGroup {
+    margin-top: 40px;
+    margin-right: 400px;
+    margin-left: 400px;
+    margin-bottom: 100px;
+}
+
+.orderAccordions {
+    margin-top: 70px;
+}
+
+.menuItemCard {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+.addRemoveButton {
+    font-size: x-large;
+    margin-left: 10px;
+    margin-right: 10px;
+}

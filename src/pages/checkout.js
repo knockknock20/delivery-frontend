@@ -1,5 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import "../style/checkout.css";
 
 class Checkout extends React.Component {
 
@@ -39,44 +44,60 @@ class Checkout extends React.Component {
         }
         return (
             <div>
-                <h3>Checkout!</h3>
-                <div>{ "Date: " 
-                    + this.state.checkout.orderDate.year 
-                    + "-" 
-                    + this.state.checkout.orderDate.monthValue 
-                    + "-" 
-                    + this.state.checkout.orderDate.dayOfMonth  }
-                </div>
-
-                <div>{ "Time: " 
-                    + this.state.checkout.orderTime.hour
-                    + ":" 
-                    + this.state.checkout.orderTime.minute
-                    + ":" 
-                    + this.state.checkout.orderTime.second }
-                </div>
-                <br />
+                <Navbar fixed="top" bg="dark" variant="dark">
+                    <Navbar.Brand href="#home">Knock Knock - Checkout!</Navbar.Brand>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to={ { pathname: "/", userId: this.state.userId} } >
+                            Home
+                        </Nav.Link>
+                    </Nav>
+                </Navbar>
                 
-                {this.state.checkout.orderItems.map(orderItem => (
-                        <div key={orderItem.id}>
-                            <div>*********** Item **************</div>
-                            <div>{"Name:   " + orderItem.name}</div>
-                            <div>{"Price:   " + orderItem.price}</div>
-                            <div>{"Description:   " + orderItem.description}</div>
-                            <div>*******************************</div>
-                            <br />
+                <div className="checkoutPage">
+                    <div>{ "Date: " 
+                        + this.state.checkout.orderDate.year 
+                        + "-" 
+                        + this.state.checkout.orderDate.monthValue 
+                        + "-" 
+                        + this.state.checkout.orderDate.dayOfMonth  }
+                    </div>
+
+                    <div>{ "Time: " 
+                        + this.state.checkout.orderTime.hour
+                        + ":" 
+                        + this.state.checkout.orderTime.minute
+                        + ":" 
+                        + this.state.checkout.orderTime.second }
+                    </div>
+                    <br />
+                    
+                    {this.state.checkout.orderItems.map(orderItem => (
+                        <div class="card" key={orderItem.id}> 
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="" src={orderItem.imageURL} width="200px" height="200px" alt="Card image cap" />
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">{orderItem.name}</h4>
+                                    <p class="card-text">Price:   ${orderItem.price}</p>
+                                </div>
+                            </div>
                         </div>
-                    ))
-                }
+                    ))}
+                    
+                    <br />
 
-                <div>{ "Total Price: " + this.state.checkout.totalPrice}</div>
-                <div>{ "Order Status: " + this.state.checkout.orderStatus}</div>
+                    <div>{ "Total Price:  $" + this.state.checkout.totalPrice}</div>
+                    <div>{ "Order Status: " + this.state.checkout.orderStatus}</div>
 
-                <Link to={ { pathname: "/", userId: this.state.userId} } >
-                    <button type="button">
-                        Main Page
-                    </button>
-                </Link>
+                    <br />
+
+                    <Link to={ { pathname: "/", userId: this.state.userId} } >
+                        <Button variant="outline-secondary" block>
+                            Home
+                        </Button>
+                    </Link>
+                </div>
             </div>
         );
     }
