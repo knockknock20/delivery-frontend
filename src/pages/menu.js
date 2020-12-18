@@ -96,7 +96,7 @@ class Menu extends React.Component {
             return (
                 <div>
                      <Spinner animation="border" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only">Menu Loading...</span>
                     </Spinner>
                 </div>
             );
