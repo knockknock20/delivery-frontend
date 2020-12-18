@@ -21,8 +21,7 @@ class LoginForm extends React.Component {
     }
 
     handleInputChange(event) {
-        console.log("called!!");
-
+    
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -45,8 +44,7 @@ class LoginForm extends React.Component {
                 }
             )
         };
-        console.log(this.state.email);
-        console.log(this.state.password);
+       
         // fetch("http://localhost:5000/user/login", requestOption)
         fetch(backendURL + "user/login", requestOption)
             .then(response => response.json())

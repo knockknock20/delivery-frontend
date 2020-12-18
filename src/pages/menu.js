@@ -6,7 +6,9 @@ import Button from 'react-bootstrap/Button';
 import Image from "react-bootstrap/Image";
 import "../style/card.css";
 import "../style/image.css";
+import "../style/loadingPage.css";
 import backendURL from "./backendURL";
+import "../style/loadingPage.css";
 import Spinner from "react-bootstrap/Spinner";
 
 class Menu extends React.Component {
@@ -94,9 +96,10 @@ class Menu extends React.Component {
     render() {
         if (this.state.loading) {
             return (
-                <div>
+                <div className="loading">
+                    <div>Loading...</div>
                      <Spinner animation="border" role="status">
-                        <span className="sr-only">Menu Loading...</span>
+                        <span className="sr-only">Loading...</span>
                     </Spinner>
                 </div>
             );

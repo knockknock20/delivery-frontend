@@ -8,6 +8,8 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import "../style/image.css";
 import backendURL from "./backendURL";
+import "../style/loadingPage.css";
+import Spinner from "react-bootstrap/Spinner";
 
 class Order extends React.Component {
 
@@ -26,9 +28,15 @@ class Order extends React.Component {
     }
 
     render() {
-        console.log(this.state.orders);
         if (this.state.loading) {
-            return <div> loading... </div>;
+            return (
+                <div className="loading">
+                    <div>Loading...</div>
+                     <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </div>
+            );
         }
         if (!this.state.orders.length) {
             return (

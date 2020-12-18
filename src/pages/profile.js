@@ -6,6 +6,8 @@ import Nav from "react-bootstrap/Nav";
 import "../style/profile.css";
 import Button from "react-bootstrap/Button";
 import backendURL from "./backendURL";
+import "../style/loadingPage.css";
+import Spinner from "react-bootstrap/Spinner";
 
 class Profile extends React.Component {
 

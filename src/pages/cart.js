@@ -7,6 +7,8 @@ import "../style/card.css";
 import Image from "react-bootstrap/Image";
 import "../style/image.css";
 import backendURL from "./backendURL";
+import "../style/loadingPage.css";
+import Spinner from "react-bootstrap/Spinner";
 
 class Cart extends React.Component {
 
@@ -27,7 +29,14 @@ class Cart extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div> loading... </div>;
+            return (
+                <div className="loading">
+                    <div>Loading...</div>
+                     <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </div>
+            );
         }
         if (!this.state.items.length) {
             return (
