@@ -24,7 +24,6 @@ class Checkout extends React.Component {
             method: "POST",
             header: {'Content-Type':'application/json'},
         };
-        // const url = "http://localhost:5000/user/order/" + this.state.userId;
         const url = backendURL + "user/order/" + this.state.userId;
         const response = await fetch(url, requestOption);
         const data = await response.json();

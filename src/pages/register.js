@@ -42,7 +42,6 @@ class RegisterForm extends React.Component {
             )
         };
 
-        // fetch("http://localhost:5000/register", requestOption)
         fetch(backendURL + "register", requestOption)
             .then(response => response.json())
             .then(

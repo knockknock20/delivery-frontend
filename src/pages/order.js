@@ -19,8 +19,7 @@ class Order extends React.Component {
         userId: this.props.location.userId
     };
 
-    async componentDidMount() {
-        // const url = "http://localhost:5000/user/order/" + this.state.userId; 
+    async componentDidMount() { 
         const url = backendURL + "user/order/" + this.state.userId;  
         const response = await fetch(url);
         const data = await response.json();

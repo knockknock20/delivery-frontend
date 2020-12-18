@@ -16,12 +16,10 @@ class LoginForm extends React.Component {
             password: '',
             userId: ''
         };
-
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(event) {
-    
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -45,7 +43,6 @@ class LoginForm extends React.Component {
             )
         };
        
-        // fetch("http://localhost:5000/user/login", requestOption)
         fetch(backendURL + "user/login", requestOption)
             .then(response => response.json())
             .then(

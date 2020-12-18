@@ -11,8 +11,6 @@ import backendURL from "./backendURL";
 import "../style/loadingPage.css";
 import Spinner from "react-bootstrap/Spinner";
 
-
-
 class MainPage extends React.Component {
 
     state = {
@@ -22,7 +20,6 @@ class MainPage extends React.Component {
     };
 
     async componentDidMount() {
-        // const url = "http://localhost:5000/restaurant";
         const url = backendURL + "restaurant";
         const response = await fetch(url);
         const data = await response.json();
@@ -45,7 +42,6 @@ class MainPage extends React.Component {
             return <div>didn't get any restaurants...</div>
         }
         
-        console.log(this.state.restaurants);
         return (
             <div className="mainPage">
                 <Navbar fixed="top" bg="dark" variant="dark">

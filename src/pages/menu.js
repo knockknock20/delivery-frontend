@@ -29,19 +29,16 @@ class Menu extends React.Component {
     }
 
     async helper() {
-        // const url = "http://localhost:5000/restaurant/item/" + this.state.restaurantId; 
         const url = backendURL + "restaurant/item/" + this.state.restaurantId;   
         const response = await fetch(url);
         const data = await response.json();
 
         await Promise.all(data.map(async (item) => {
-            // const url = "http://localhost:5000/user/item/quantity/" + this.state.userId + "/" + item.id;
             const url = backendURL + "user/item/quantity/" + this.state.userId + "/" + item.id;
             const result = await (await fetch(url)).text();
             item.quantity = result === "null" ? "0" : result;
         }));
 
-        console.log(data);
         this.setState({items: data, loading: false});
     }
 
@@ -53,9 +50,7 @@ class Menu extends React.Component {
         event.preventDefault();
 
         const itemId = event.target.id;
-        // const url = "http://localhost:5000/user/item/" + this.state.userId;
         const url = backendURL + "user/item/" + this.state.userId;
-
         const requestOption = {
             method: 'POST',
             header: { 'Content-Type': 'application/json' },
@@ -75,7 +70,6 @@ class Menu extends React.Component {
         event.preventDefault();
         
         const itemId = event.target.id;
-        // const url = "http://localhost:5000/user/item/" + this.state.userId;
         const url = backendURL + "user/item/" + this.state.userId;
 
         const requestOption = {
@@ -155,7 +149,6 @@ class Menu extends React.Component {
                     </div>
                 </div>
             </div>
-            
         );
     }
 }

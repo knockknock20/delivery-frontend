@@ -20,7 +20,6 @@ const App = () => {
         <Route exact path="/checkout/:userId" component={Checkout} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/register" component={RegisterLanding} />
-        {/* <Redirect to='/404page' /> */}
       </Switch>
     </Router>
   );

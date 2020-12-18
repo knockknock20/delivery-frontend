@@ -8,7 +8,6 @@ class RegisterLanding extends React.Component {
         this.state = {
           userId: null
         }
-
         this.stateChanger = this.stateChanger.bind(this);
     }
 
@@ -20,9 +19,7 @@ class RegisterLanding extends React.Component {
     render() {
         return (
             <div>
-            { 
-                (this.state.userId) ? <MainPage userId={this.state.userId}/> : <RegisterForm stateChanger={this.stateChanger}/>
-            }
+            { (this.state.userId) ? <MainPage userId={this.state.userId}/> : <RegisterForm stateChanger={this.stateChanger}/>}
             </div>
         )
     }
