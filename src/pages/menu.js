@@ -7,6 +7,7 @@ import Image from "react-bootstrap/Image";
 import "../style/card.css";
 import "../style/image.css";
 import backendURL from "./backendURL";
+import Spinner from "react-bootstrap/Spinner";
 
 class Menu extends React.Component {
 
@@ -75,9 +76,6 @@ class Menu extends React.Component {
         // const url = "http://localhost:5000/user/item/" + this.state.userId;
         const url = backendURL + "user/item/" + this.state.userId;
 
-        console.log("remove performed");
-        console.log(itemId);
-
         const requestOption = {
             method: 'DELETE',
             header: { 'Content-Type': 'application/json' },
@@ -95,8 +93,15 @@ class Menu extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div> loading... </div>;
+            return (
+                <div>
+                     <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </div>
+            );
         }
+
         if (!this.state.items.length) {
             return <div>didn't get any item...</div>
         }
